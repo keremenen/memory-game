@@ -2,10 +2,13 @@ import './SingleCard.css'
 import PropTypes from 'prop-types'
 
 
-export const SingleCard = ({card, handleChoice, flipped}) => {
+export const SingleCard = ({card, handleChoice, flipped, disabled}) => {
 
     const handleClick = () => {
-        handleChoice(card)
+        if (!disabled){
+
+            handleChoice(card)
+        }
     }
 
     return(
@@ -22,7 +25,8 @@ export const SingleCard = ({card, handleChoice, flipped}) => {
 SingleCard.propTypes = {
     card: PropTypes.object,
     handleChoice: PropTypes.func,
-    flipped: PropTypes.bool
+    flipped: PropTypes.bool,
+    disabled: PropTypes.bool
 }
 
 export default SingleCard
